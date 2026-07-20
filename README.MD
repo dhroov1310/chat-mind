@@ -51,7 +51,7 @@ The project follows a client-server architecture with a React frontend, Express/
 
 > - Login Page
 
-![LoginPage.png](imgg/chat.png)
+![LoginPage.png](imgg/login.png)
 
 > - Sign Up Page
 
