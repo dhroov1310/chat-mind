@@ -156,7 +156,7 @@ const submitHandler = async () => {
              <LockOutlinedIcon />
            </Avatar>
            <Typography variant="h5" component="h1" className={classes.heading}>
-             Sign in to Your Account
+             Sign up to Your Account
            </Typography>
            <TextField
              label="Name"
