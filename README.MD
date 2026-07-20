@@ -48,15 +48,26 @@ The project follows a client-server architecture with a React frontend, Express/
 ---
 
 ## 📸 Screenshots
+
 > - Login Page
+<br>
 ![LoginPage.png](<imgg/Screenshot 2026-07-21 011810.png>)
+<br>
 > - Sign Up Page
-![alt text](<imgg/Screenshot 2026-07-21 011824.png>)
+<br>
+![SignUpPage.png](<imgg/Screenshot 2026-07-21 011824.png>)
+<br>
 > - Chat Interface
-![alt text](<imgg/Screenshot 2026-07-21 020750.png>)
+<br>
+![ChatInterface.png](<imgg/Screenshot 2026-07-21 020750.png>)
+<br>
 > - Group Chat
-![alt text](<imgg/Screenshot 2026-07-21 020822.png>)
+<br>
+![GroupChat.png](<imgg/Screenshot 2026-07-21 020822.png>)
+<br>
 > - User Search
-![alt text](<imgg/Screenshot 2026-07-21 020800.png>)
+<br>
+![UserSearch.png](<imgg/Screenshot 2026-07-21 020800.png>)
+<br>
 
 ---
