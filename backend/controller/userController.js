@@ -43,40 +43,37 @@ exports.allSearchUser = asyncWrapper(async (req, res) => {
 //@route           POST /api/user/
 //@access          Public
 exports.registerUser = asyncWrapper(async (req, res, next) => {
-  // cloudinary config for image upload to cloudinary server 
+  const { name, email, password, pic } = req.body;
 
-
-  const myCloud = await cloudinary.v2.uploader.upload(req.body.pic, {
-    folder: "profile",
-    width: 150,
-    crop: "scale",
-  }); 
- 
-    
- 
-
-  const { name, email, password } = req.body;
-  
   if (!name || !email || !password) {
     return next(new ErrorHandler("Please Enter all the Feilds", 400));
-  }   
+  }
 
   const userExits = await UserModel.findOne({ email });
- 
+
   if (userExits) {
     return next(new ErrorHandler("User already exists", 400));
+  }
+
+  let picUrl;
+  if (pic && typeof pic === "string" && pic.trim() !== "") {
+    const myCloud = await cloudinary.v2.uploader.upload(pic, {
+      folder: "profile",
+      width: 150,
+      crop: "scale",
+    });
+    picUrl = myCloud.secure_url;
   }
 
   const user = await UserModel.create({
     name,
     password,
     email,
-    pic: myCloud.secure_url,
+    ...(picUrl && { pic: picUrl }),
   });
 
-
   if (user) {
-  sendJwtToekn(user, 201, res);
+    sendJwtToekn(user, 201, res);
   } else {
     console.log("error");
     return next(new ErrorHandler("Bad request", 400));

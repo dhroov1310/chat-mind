@@ -6,6 +6,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import Loader from "./components/layouts/Loader";
+import { ChatState } from "./Context/ChatProvider";
 
 const Chatpage = React.lazy(() => import("./Pages/Chatpage"));
 const Signup = React.lazy(() => import("./components/Authentication/Signup"));
@@ -16,7 +17,7 @@ const ForgetPassowrd = React.lazy(() =>
 
 function App() { 
   const history = useHistory(); 
-  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const { user } = ChatState();
  
   useEffect(() => {
     if (!user) {

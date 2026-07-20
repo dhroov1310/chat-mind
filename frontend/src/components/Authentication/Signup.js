@@ -24,7 +24,7 @@ const Signup = () => {
   const classes = useStyles();
   const toast = useToast();
   const history = useHistory();
-const { setIsAuth } = ChatState();
+const { setIsAuth, setUser } = ChatState();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -81,9 +81,9 @@ const submitHandler = async () => {
 
     if (data) {
       localStorage.setItem("userInfo", JSON.stringify(data));
+      setUser(data);
        setIsLoginDisabled(false);
        setIsAuth(true);
-      setIsAuth(true);
     }
      
       history.push("/chats");

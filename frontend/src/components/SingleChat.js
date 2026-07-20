@@ -23,9 +23,11 @@ import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
 
-const ENDPOINT = window.location.hostname === "localhost"
-  ? "http://localhost:5000"
-  : "https://chat-mind-production.up.railway.app/";
+const ENDPOINT =
+  process.env.REACT_APP_SOCKET_ENDPOINT ||
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? `http://${window.location.hostname}:5000`
+    : "http://localhost:5000");
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {

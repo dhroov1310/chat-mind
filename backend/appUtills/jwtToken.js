@@ -19,6 +19,7 @@ const sendJwtToekn  = (userData  , statusCode , res) =>{
       isAdmin: userData.isAdmin,
       pic: userData.pic,
       createdAt: userData.createdAt,
+      token: Token,
     });
 
     

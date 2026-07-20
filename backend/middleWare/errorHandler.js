@@ -27,7 +27,4 @@ module.exports = (err, req, res, next) => {
     success: false,
     message: err.message,
   });
-
-  // Pass the error object to the next middleware function
-  next(err);
 };
