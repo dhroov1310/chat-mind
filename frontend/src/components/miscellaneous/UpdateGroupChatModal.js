@@ -46,6 +46,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       const config = {
         headers: {
          "Content-type" : "appilication/json",
+         Authorization: `Bearer ${user.token}`,
         },
       };
       const { data } = await axios.get(`/api/user?search=${search}`, config);
@@ -130,13 +131,20 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
      
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+
       const { data } = await axios.put(
         `/api/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
         },
-       
+        config
       );
 
       setSelectedChat(data);
@@ -172,7 +180,12 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
 
     try {
       setLoading(true);
-      const config = { headers : {"Content-type" : "application/json"} };
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
       const { data } = await axios.put(
         `/api/chat/groupremove`,
         {

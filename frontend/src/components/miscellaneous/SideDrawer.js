@@ -82,6 +82,7 @@ function SideDrawer() {
       const config = {
         headers: {
           "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
       };
 
@@ -110,6 +111,7 @@ function SideDrawer() {
       const config = {
         headers: {
           "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
       };
       const { data } = await axios.post(`/api/chat`, { userId }, config);

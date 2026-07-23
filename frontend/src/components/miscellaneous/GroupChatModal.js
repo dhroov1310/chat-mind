@@ -28,7 +28,7 @@ const GroupChatModal = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
 
-  const {  chats, setChats } = ChatState();
+  const { user, chats, setChats } = ChatState();
 
   const handleGroup = (userToAdd) => {
     if (selectedUsers.includes(userToAdd)) {
@@ -55,7 +55,8 @@ const GroupChatModal = ({ children }) => {
       setLoading(true);
       const config = {
         headers: {
-      "Content-type" : "appilication/json"
+          "Content-type" : "appilication/json",
+          Authorization: `Bearer ${user.token}`,
         },
       };
       const { data } = await axios.get(`/api/user?search=${search}`, config);
@@ -105,7 +106,12 @@ const GroupChatModal = ({ children }) => {
      
   
     try {
-      const config = { headers: { "Content-type": "application/json" } };
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
       const { data } = await axios.post(
         `/api/chat/group`,
         {
