@@ -16,7 +16,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link } from "react-router-dom";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useToast } from "@chakra-ui/toast";
-import axios from "axios";
+import axios from "../../config/axios";
 import { useHistory } from "react-router";
 import {ChatState} from "../../Context/ChatProvider"
 import Loader from "../layouts/Loader";

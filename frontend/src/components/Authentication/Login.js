@@ -13,7 +13,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import HomePage from "../../Pages/Homepage";
-import axios from "axios";
+import axios from "../../config/axios";
 import { useToast } from "@chakra-ui/react";
 import { useHistory , Link } from "react-router-dom";
 import { ChatState } from "../../Context/ChatProvider";
